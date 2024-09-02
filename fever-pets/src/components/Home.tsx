@@ -1,6 +1,7 @@
 import { useFetch } from '../hooks/useFetch'
 import { Pet } from '../types'
 import { API_URL } from '../utils/constants'
+import PetCard from './PetCard'
 
 const Home = () => {
   const { data, isLoading, hasError } = useFetch<Pet[]>(API_URL)
@@ -14,19 +15,14 @@ const Home = () => {
   }
 
   return (
-    <div>
+    <>
       <h1>Pets</h1>
-      <ul>
+      <div className="row rows-cols-1 row-cols-md-3 g-3">
         {data?.map((pet) => (
-          <li key={pet.id}>
-            <h2>{pet.name}</h2>
-            <h3>{pet.kind}</h3>
-            <img src={pet.photo_url} alt={pet.kind} />
-            <p>{pet.description}</p>
-          </li>
+          <PetCard key={pet.id} {...pet} />
         ))}
-      </ul>
-    </div>
+      </div>
+    </>
   )
 }
 
