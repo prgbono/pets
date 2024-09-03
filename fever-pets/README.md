@@ -21,6 +21,11 @@ In the function `handleSortOptionChange` of the file `Home.tsx` we have used the
 - The route `<Route path="/*" element={<Navigate to="/" />} />` given in the file `AppRouter.tsx` is just to redirect all not valid routes to the main page.
 - The instruction `return <Navigate to="" />` in file `PetDetail.tsx` is just for reaching a valid url in case that the pet doesn't exist (undefined).
 
+# [Commit 'Added UI for PetDetails (link)'](https://github.com/FeverCodeChallenge/Francisco_Rios/commit/2d9b10e40ef4eb435e606908e8822d56c0fea070)
+
+- We are using in the file `PetDetail.tsx` two ways of redirecting the user to another url, they are [Navigate](https://reactrouter.com/en/main/components/navigate#navigate) and [useNavigate](https://reactrouter.com/en/main/hooks/use-navigate#usenavigate), both of them from react-router-dom library. Why is not enough with just one? This is because of the context where we are using them. While Navigate is a component used in JSX to automatically do the redirection when it is rendered, useNavigate is a hook used in the component's logic to make the redirection in response to events or actions.
+- TODO: - We should use useMemo when fetching pets list and pet details. We are making request in the root of their components (`Home.tsx` and `PetDetail.tsx`). Every time their states change the components are re-rendered so that a new request is done. By using useMemo we memorize the values retrieved and the performance would be improved.
+
 ## From here is documentation added automatically by [ViteJS](https://vitejs.dev/)
 
 # React + TypeScript + Vite
