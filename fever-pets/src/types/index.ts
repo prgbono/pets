@@ -9,3 +9,10 @@ export type Pet = {
   description: string
   number_of_lives: number
 }
+
+export type SORTING_OPTIONS_TYPE =
+  | 'Name'
+  | 'Kind'
+  | 'Weight'
+  | 'Height'
+  | 'Length'
