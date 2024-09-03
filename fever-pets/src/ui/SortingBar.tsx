@@ -36,7 +36,10 @@ const SortingBar = ({
           ))}
         </ul>
         <div className="ms-auto">
-          <button className="btn btn-outline-info" onClick={onPetOfTheDayClick}>
+          <button
+            className="btn btn-outline-primary"
+            onClick={onPetOfTheDayClick}
+          >
             Pet of the day
           </button>
         </div>
