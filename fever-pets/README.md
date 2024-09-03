@@ -15,6 +15,12 @@ In the function `handleSortOptionChange` of the file `Home.tsx` we have used the
 - Clone the original array of data with [structuredClone](https://developer.mozilla.org/en-US/docs/Web/API/structuredClone). This method provides a really deep clone, not only the first level but all of them.
   We finally did it by making a superficial clone of the original array of data. You can see that by using the spread operator in line 28 `[...pets].sort`
 
+# [Commit 'Added router (link)']()
+
+- [React Router](https://reactrouter.com/en/main) is just one router that can be used. The reason why this has been chosen is because is the most extensively used.
+- The route `<Route path="/*" element={<Navigate to="/" />} />` given in the file `AppRouter.tsx` is just to redirect all not valid routes to the main page.
+- The instruction `return <Navigate to="" />` in file `PetDetail.tsx` is just for reaching a valid url in case that the pet doesn't exist (undefined).
+
 ## From here is documentation added automatically by [ViteJS](https://vitejs.dev/)
 
 # React + TypeScript + Vite
