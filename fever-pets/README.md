@@ -1,12 +1,12 @@
 # CONSIDERATIONS
 
-# [Commit 'Initial Commit'](https://github.com/FeverCodeChallenge/Francisco_Rios/commit/90a374a5d2701a7892b89d6dd56186f674735cdd)
+# [Commit 'Initial Commit (link)'](https://github.com/FeverCodeChallenge/Francisco_Rios/commit/90a374a5d2701a7892b89d6dd56186f674735cdd)
 
 ### Why ViteJS?
 
 1. Instant Start: Fast development server with near-instant startup. 2. Faster HMR: Super fast Hot Module Replacement for quick updates. 3. Optimized Build: Uses esbuild for faster production builds. 4. Minimal Configuration: Easy setup with flexible configuration options. 5. Multi-Framework Support: Works with Vue, React, Svelte, and more. 6. Modern Technology: Leverages ES modules and modern browser features. 7. Lightweight: Reduced complexity and better performance compared to traditional bundlers like Webpack.
 
-# [Commit 'Sorting']()
+# [Commit 'Sorting' (link)](https://github.com/FeverCodeChallenge/Francisco_Rios/commit/040fefcd6b4564f031f805d4e2ebd4d773caac1d)
 
 In the function `handleSortOptionChange` of the file `Home.tsx` we have used the array method [sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort) to sort the pets. This wasn't our first choice because this method modify the original array of data. They were:
 
@@ -14,6 +14,8 @@ In the function `handleSortOptionChange` of the file `Home.tsx` we have used the
 - Create a second state. Discarded because it is not a good practice (we need to have in mind a render is done everytime a state changes)
 - Clone the original array of data with [structuredClone](https://developer.mozilla.org/en-US/docs/Web/API/structuredClone). This method provides a really deep clone, not only the first level but all of them.
   We finally did it by making a superficial clone of the original array of data. You can see that by using the spread operator in line 28 `[...pets].sort`
+
+## From here is documentation added automatically by [ViteJS](https://vitejs.dev/)
 
 # React + TypeScript + Vite
 
