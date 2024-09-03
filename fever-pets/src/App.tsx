@@ -1,8 +1,8 @@
 import './App.css'
-import Home from './components/Home'
+import AppRouter from './router/AppRouter'
 
 function App() {
-  return <Home />
+  return <AppRouter />
 }
 
 export default App

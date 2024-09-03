@@ -26,9 +26,7 @@ const SortingBar = ({
           {SORTING_OPTIONS.map((option) => (
             <li
               key={option}
-              className={`nav-item nav-link ${
-                activeOption === option ? 'active' : ''
-              }`}
+              className={`nav-item ${activeOption === option ? 'active' : ''}`}
               onClick={() => onSortOptionClick(option)}
             >
               <a className="nav-link" href="#" role="button">
