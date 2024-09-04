@@ -7,7 +7,7 @@ export type Pet = {
   length: number
   photo_url: string
   description: string
-  number_of_lives: number
+  number_of_lives?: number
 }
 
 export type SORTING_OPTIONS_TYPE =
@@ -16,3 +16,10 @@ export type SORTING_OPTIONS_TYPE =
   | 'Weight'
   | 'Height'
   | 'Length'
+
+export type PetContextType = {
+  pets: Pet[] | []
+  isLoading: boolean
+  hasError: string | null
+  handleSortOptionChange: (option: SORTING_OPTIONS_TYPE) => void
+}
