@@ -26,7 +26,18 @@ In the function `handleSortOptionChange` of the file `Home.tsx` we have used the
 - We are using in the file `PetDetail.tsx` two ways of redirecting the user to another url, they are [Navigate](https://reactrouter.com/en/main/components/navigate#navigate) and [useNavigate](https://reactrouter.com/en/main/hooks/use-navigate#usenavigate), both of them from react-router-dom library. Why is not enough with just one? This is because of the context where we are using them. While Navigate is a component used in JSX to automatically do the redirection when it is rendered, useNavigate is a hook used in the component's logic to make the redirection in response to events or actions.
 - TODO: - We should use useMemo when fetching pets list and pet details. We are making request in the root of their components (`Home.tsx` and `PetDetail.tsx`). Every time their states change the components are re-rendered so that a new request is done. By using useMemo we memorize the values retrieved and the performance would be improved.
 
+# [Commit 'Fetch data in context provider so that sorting persist (link)'](https://github.com/FeverCodeChallenge/Francisco_Rios/commit/82b78244e446587e7dacea8da686789c2ad609ac)
+
 ## From here is documentation added automatically by [ViteJS](https://vitejs.dev/)
+
+From this commit the way pets are sorted is persisted. This could have been done in 2 ways:
+
+- By saving the sort in the url as a param. For that, we would have used [useSearchParams and query parameters](https://reactrouter.com/en/main/hooks/use-search-params#usesearchparams)
+- By saving the sort in a context. In this case, we have chosen this option because:
+  1. Context is in reac api itself.
+  2. By using context we don't need to change the router, as it would be in case of query parameters.
+
+Besides, we've included the use of [useCallback](https://react.dev/reference/react/useCallback) in the file `PetProvider.tsx` for improving the performance and memorize the function that applies to `handleSortOptionChange`. By using _useCallback_ we ensure that the function is not created in every render unless a change on its dependencies happens.
 
 # React + TypeScript + Vite
 
