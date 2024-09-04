@@ -10,18 +10,11 @@ export type Pet = {
   number_of_lives?: number
 }
 
-export type SORTING_OPTIONS_TYPE =
-  | 'Name'
-  | 'Kind'
-  | 'Weight'
-  | 'Height'
-  | 'Length'
-
 export type PetContextType = {
   pets: Pet[] | []
   isLoading: boolean
   hasError: string | null
-  onSortOptionChange: (option: SORTING_OPTIONS_TYPE) => void
+  onSortOptionChange: (option: string) => void
 }
 
 export type PetOfTheDayProps = {
@@ -31,6 +24,6 @@ export type PetOfTheDayProps = {
 }
 
 export type SortingBarProps = {
-  onSortOptionChange: (option: SORTING_OPTIONS_TYPE) => void
+  onSortOptionChange: (option: string) => void
   onPetOfTheDayClick: () => void
 }

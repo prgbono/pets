@@ -4,7 +4,13 @@
 
 ### Why ViteJS?
 
-1. Instant Start: Fast development server with near-instant startup. 2. Faster HMR: Super fast Hot Module Replacement for quick updates. 3. Optimized Build: Uses esbuild for faster production builds. 4. Minimal Configuration: Easy setup with flexible configuration options. 5. Multi-Framework Support: Works with Vue, React, Svelte, and more. 6. Modern Technology: Leverages ES modules and modern browser features. 7. Lightweight: Reduced complexity and better performance compared to traditional bundlers like Webpack.
+1. Instant Start: Fast development server with near-instant startup.
+2. Faster HMR: Super fast Hot Module Replacement for quick updates.
+3. Optimized Build: Uses esbuild for faster production builds.
+4. Minimal Configuration: Easy setup with flexible configuration options.
+5. Multi-Framework Support: Works with Vue, React, Svelte, and more.
+6. Modern Technology: Leverages ES modules and modern browser features.
+7. Lightweight: Reduced complexity and better performance compared to traditional bundlers like Webpack.
 
 # [Commit 'Sorting' (link)](https://github.com/FeverCodeChallenge/Francisco_Rios/commit/040fefcd6b4564f031f805d4e2ebd4d773caac1d)
 
@@ -38,9 +44,9 @@ From this commit the way pets are sorted is persisted. This could have been done
 
   Besides, we've included the use of [useCallback](https://react.dev/reference/react/useCallback) in the file `PetProvider.tsx` for improving the performance and memorize the function that applies to `onSortOptionChange`. By using _useCallback_ we ensure that the function is not created in every render unless a change on its dependencies happens. It is also used in the custom hook `useFetch` and more files.
 
-  # [Commit 'Add i18n (link)'](https://github.com/FeverCodeChallenge/Francisco_Rios/commit/dc3628035e58de11d6b5927e9f194077de9e3cae)
+# [Commit 'Add i18n (link)'](https://github.com/FeverCodeChallenge/Francisco_Rios/commit/dc3628035e58de11d6b5927e9f194077de9e3cae)
 
-  We just did some translations mainly in the navbar. This implementation is just to show how it would be and check that it works.
+We just did some translations mainly in the navbar. This implementation is just to show how it would be and check that it works.
 
 ## From here is documentation added automatically by [ViteJS](https://vitejs.dev/)
 

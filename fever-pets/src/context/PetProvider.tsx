@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import { useFetch } from '../hooks/useFetch'
 import { PetContext } from './PetContext'
-import { Pet, SORTING_OPTIONS_TYPE } from '../types'
+import { Pet } from '../types'
 import { API_URL } from '../utils/constants'
 
 export const PetProvider: React.FC<{ children: React.ReactNode }> = ({
@@ -15,23 +15,19 @@ export const PetProvider: React.FC<{ children: React.ReactNode }> = ({
   }, [data])
 
   const onSortOptionChange = useCallback(
-    (option: SORTING_OPTIONS_TYPE) => {
+    (option: string) => {
       setPets(
         [...pets].sort((a: Pet, b: Pet) => {
           switch (option) {
-            case 'Name':
+            case 'navbar.name':
               return a.name.localeCompare(b.name)
-
-            case 'Kind':
+            case 'navbar.kind':
               return a.kind.localeCompare(b.kind)
-
-            case 'Weight':
+            case 'navbar.weight':
               return a.weight - b.weight
-
-            case 'Height':
+            case 'navbar.height':
               return a.height - b.height
-
-            case 'Length':
+            case 'navbar.length':
               return a.length - b.length
 
             default:
