@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { SORTING_OPTIONS } from '../utils/constants'
-import { SORTING_OPTIONS_TYPE, SortingBarProps } from '../types'
+import { SortingBarProps } from '../types'
 import { useTranslation } from 'react-i18next'
 
 const SortingBar = ({
@@ -12,7 +12,7 @@ const SortingBar = ({
 
   const onSortOptionClick = (option: string) => {
     setActiveOption(option)
-    onSortOptionChange(option as SORTING_OPTIONS_TYPE)
+    onSortOptionChange(option as string)
   }
 
   return (

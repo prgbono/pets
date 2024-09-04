@@ -1,12 +1,12 @@
-import Footer from '../ui/Footer'
-import PetCard from './PetCard'
-import { usePetContext } from '../hooks/usePetContext'
-import SortingBar from '../ui/SortingBar'
 import { useCallback, useState } from 'react'
+import PetCard from './PetCard'
 import PetOfTheDay from './PetOfTheDay'
-import { Pet } from '../types'
-import { DAYS_PER_MONTH } from '../utils/constants'
-import LanguageSwitcher from './LanguageSwitcher'
+import Footer from '../../ui/Footer'
+import { usePetContext } from '../../hooks/pets/usePetContext'
+import SortingBar from '../../ui/SortingBar'
+import { Pet } from '../../types'
+import { DAYS_PER_MONTH } from '../../utils/constants'
+import LanguageSwitcher from '../common/LanguageSwitcher'
 
 const Home = () => {
   const { pets, isLoading, onSortOptionChange, hasError } = usePetContext()

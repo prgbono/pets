@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
-import { Pet } from '../types'
-import { calculatePetHealth, getTextColorClass } from '../utils'
+import { Pet } from '../../types'
+import { calculatePetHealth, getTextColorClass } from '../../utils'
 
 const PetCard = ({
   height,
