@@ -8,7 +8,7 @@
 
 # [Commit 'Sorting' (link)](https://github.com/FeverCodeChallenge/Francisco_Rios/commit/040fefcd6b4564f031f805d4e2ebd4d773caac1d)
 
-In the function `handleSortOptionChange` of the file `Home.tsx` we have used the array method [sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort) to sort the pets. This wasn't our first choice because this method modify the original array of data. They were:
+In the function `onSortOptionChange` of the file `Home.tsx` we have used the array method [sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort) to sort the pets. This wasn't our first choice because this method modify the original array of data. They were:
 
 - [array.ToSorted](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/toSorted). This method is equal to `sort` except that it returns a new array sorted (without modifying the original) so this was the best way to proceed. Why did,'t we use? This method is quite new and there is no guarantee it will work properly in all browsers and devices. Besides, for avoiding typo errors, we would need to extend the prototype in the types which we could but not with such a short time available.
 - Create a second state. Discarded because it is not a good practice (we need to have in mind a render is done everytime a state changes)
@@ -28,16 +28,21 @@ In the function `handleSortOptionChange` of the file `Home.tsx` we have used the
 
 # [Commit 'Fetch data in context provider so that sorting persist (link)'](https://github.com/FeverCodeChallenge/Francisco_Rios/commit/82b78244e446587e7dacea8da686789c2ad609ac)
 
-## From here is documentation added automatically by [ViteJS](https://vitejs.dev/)
-
 From this commit the way pets are sorted is persisted. This could have been done in 2 ways:
 
 - By saving the sort in the url as a param. For that, we would have used [useSearchParams and query parameters](https://reactrouter.com/en/main/hooks/use-search-params#usesearchparams)
 - By saving the sort in a context. In this case, we have chosen this option because:
+
   1. Context is in reac api itself.
   2. By using context we don't need to change the router, as it would be in case of query parameters.
 
-Besides, we've included the use of [useCallback](https://react.dev/reference/react/useCallback) in the file `PetProvider.tsx` for improving the performance and memorize the function that applies to `handleSortOptionChange`. By using _useCallback_ we ensure that the function is not created in every render unless a change on its dependencies happens.
+  Besides, we've included the use of [useCallback](https://react.dev/reference/react/useCallback) in the file `PetProvider.tsx` for improving the performance and memorize the function that applies to `onSortOptionChange`. By using _useCallback_ we ensure that the function is not created in every render unless a change on its dependencies happens. It is also used in the custom hook `useFetch` and more files.
+
+  # [Commit 'Add i18n (link)'](https://github.com/FeverCodeChallenge/Francisco_Rios/commit/dc3628035e58de11d6b5927e9f194077de9e3cae)
+
+  We just did some translations mainly in the navbar. This implementation is just to show how it would be and check that it works.
+
+## From here is documentation added automatically by [ViteJS](https://vitejs.dev/)
 
 # React + TypeScript + Vite
 
