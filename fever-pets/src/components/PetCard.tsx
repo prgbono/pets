@@ -1,7 +1,25 @@
 import { Link } from 'react-router-dom'
 import { Pet } from '../types'
+import { calculatePetHealth, getTextColorClass } from '../utils'
 
-const PetCard = ({ height, id, kind, name, photo_url, weight }: Pet) => {
+const PetCard = ({
+  height,
+  id,
+  kind,
+  length,
+  name,
+  number_of_lives,
+  photo_url,
+  weight
+}: Pet) => {
+  const health = calculatePetHealth(
+    kind,
+    weight,
+    height,
+    length,
+    number_of_lives ?? 0
+  ).toLocaleUpperCase()
+
   return (
     <div className="col animate__animated animate__fadeIn">
       <div className="card border border-dark">
@@ -13,11 +31,18 @@ const PetCard = ({ height, id, kind, name, photo_url, weight }: Pet) => {
 
             <div className="col-8">
               <div className="card-body">
-                <h5 className="card-title">{name}</h5>
-                <h6 className="card-subtitle mb-2 text-muted">Kind: {kind}</h6>
-                <p className="card-text text-black">
+                <h5 className="card-title">
+                  {name}
+                  <span className="text-secondary fs-6">
+                    &nbsp;&nbsp;{kind}
+                  </span>
+                </h5>
+                <h6 className="card-text text-black">
                   {`Weight: ${weight}, Height: ${height}`}
-                </p>
+                </h6>
+                <h6 className={`card-subtitle ${getTextColorClass(health)}`}>
+                  {health}
+                </h6>
               </div>
             </div>
           </div>
