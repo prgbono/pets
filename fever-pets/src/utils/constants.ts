@@ -1,6 +1,12 @@
 export const API_URL =
   'https://my-json-server.typicode.com/Feverup/fever_pets_data/pets'
-export const SORTING_OPTIONS = ['Name', 'Kind', 'Weight', 'Height', 'Length']
+export const SORTING_OPTIONS = [
+  'navbar.name',
+  'navbar.kind',
+  'navbar.weight',
+  'navbar.height',
+  'navbar.length'
+]
 export const DAYS_PER_MONTH = 30
 
 export const UNHEALTHY_THRESHOLD_LOW = 2

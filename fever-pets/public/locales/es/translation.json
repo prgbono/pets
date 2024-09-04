@@ -1,0 +1,11 @@
+{
+  "sort_by": "Ordenar por...",
+  "navbar": {
+    "name": "Nombre",
+    "kind": "Tipo",
+    "weight": "Peso",
+    "height": "Altura",
+    "length": "Longitud",
+    "pet_of_the_day": "Mascota del día"
+  }
+}

@@ -6,6 +6,7 @@ import { useCallback, useState } from 'react'
 import PetOfTheDay from './PetOfTheDay'
 import { Pet } from '../types'
 import { DAYS_PER_MONTH } from '../utils/constants'
+import LanguageSwitcher from './LanguageSwitcher'
 
 const Home = () => {
   const { pets, isLoading, onSortOptionChange, hasError } = usePetContext()
@@ -34,6 +35,7 @@ const Home = () => {
 
   return (
     <>
+      <LanguageSwitcher />
       <SortingBar
         onSortOptionChange={onSortOptionChange}
         onPetOfTheDayClick={onPetOfTheDayClick}

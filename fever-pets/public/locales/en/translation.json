@@ -1,0 +1,11 @@
+{
+  "sort_by": "Sort by...",
+  "navbar": {
+    "name": "Name",
+    "kind": "kind",
+    "weight": "Weight",
+    "height": "Height",
+    "length": "Length",
+    "pet_of_the_day": "Pet of the day"
+  }
+}
