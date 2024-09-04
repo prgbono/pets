@@ -68,7 +68,7 @@ The pets have a `health` assigned, `weight / (height * length)`. The health has 
 # File structure
 
 We have considered 3 ways of structuring:
-![File structure](/file_structure.png)
+![File structure](/src/assets/file_structure.png)
 
 1. First one is organised by type. You can see here all the components and custom hooks are in the same src/folder. This can work for small projects.
 2. Second one is the one we have chosen for this project. It is pretty similar except that we are organising also by features, besides types. In that way, we add a new level in the folders matching each feature. For example, Fever Pets may have the folders `src/components/owners` and `src/hooks/owners`shortly.
