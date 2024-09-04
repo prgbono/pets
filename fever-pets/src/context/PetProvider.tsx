@@ -8,14 +8,13 @@ export const PetProvider: React.FC<{ children: React.ReactNode }> = ({
   children
 }) => {
   const { data, isLoading, hasError } = useFetch<Pet[]>(API_URL)
-
   const [pets, setPets] = useState<Pet[]>(data ?? [])
 
   useEffect(() => {
     setPets(data ?? [])
   }, [data])
 
-  const handleSortOptionChange = useCallback(
+  const onSortOptionChange = useCallback(
     (option: SORTING_OPTIONS_TYPE) => {
       setPets(
         [...pets].sort((a: Pet, b: Pet) => {
@@ -50,7 +49,7 @@ export const PetProvider: React.FC<{ children: React.ReactNode }> = ({
         pets,
         isLoading,
         hasError,
-        handleSortOptionChange
+        onSortOptionChange
       }}
     >
       {children}

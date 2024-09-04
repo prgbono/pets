@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { Pet } from '../types'
 
-const PetCard = ({ id, kind, name, photo_url }: Pet) => {
+const PetCard = ({ height, id, kind, name, photo_url, weight }: Pet) => {
   return (
     <div className="col animate__animated animate__fadeIn">
       <div className="card border border-dark">
@@ -14,7 +14,10 @@ const PetCard = ({ id, kind, name, photo_url }: Pet) => {
             <div className="col-8">
               <div className="card-body">
                 <h5 className="card-title">{name}</h5>
-                <h6 className="card-subtitle mb-2 text-muted">{kind}</h6>
+                <h6 className="card-subtitle mb-2 text-muted">Kind: {kind}</h6>
+                <p className="card-text text-black">
+                  {`Weight: ${weight}, Height: ${height}`}
+                </p>
               </div>
             </div>
           </div>

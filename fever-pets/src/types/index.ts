@@ -21,5 +21,16 @@ export type PetContextType = {
   pets: Pet[] | []
   isLoading: boolean
   hasError: string | null
-  handleSortOptionChange: (option: SORTING_OPTIONS_TYPE) => void
+  onSortOptionChange: (option: SORTING_OPTIONS_TYPE) => void
+}
+
+export type PetOfTheDayProps = {
+  pet: Pet
+  onCloseModal: () => void
+  showPetOfTheDay: boolean
+}
+
+export type SortingBarProps = {
+  onSortOptionChange: (option: SORTING_OPTIONS_TYPE) => void
+  onPetOfTheDayClick: () => void
 }

@@ -1,16 +1,11 @@
 import { useState } from 'react'
 import { SORTING_OPTIONS } from '../utils/constants'
-import { SORTING_OPTIONS_TYPE } from '../types'
-
-interface SortingProps {
-  onSortOptionChange: (option: SORTING_OPTIONS_TYPE) => void
-  onPetOfTheDayClick: () => void
-}
+import { SORTING_OPTIONS_TYPE, SortingBarProps } from '../types'
 
 const SortingBar = ({
   onSortOptionChange,
   onPetOfTheDayClick
-}: SortingProps) => {
+}: SortingBarProps) => {
   const [activeOption, setActiveOption] = useState<string>(SORTING_OPTIONS[0])
 
   const onSortOptionClick = (option: string) => {
