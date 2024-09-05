@@ -3,5 +3,18 @@
   "references": [
     { "path": "./tsconfig.app.json" },
     { "path": "./tsconfig.node.json" }
-  ]
+  ],
+  "compilerOptions": {
+    "jsx": "react-jsx", // O "react" para versiones anteriores a React 17
+    "esModuleInterop": true,
+    "module": "ESNext", // O "CommonJS" si necesitas soporte para Node.js
+    "moduleResolution": "Node",
+    "target": "ESNext",
+    "strict": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    },
+    "resolveJsonModule": true
+  }
 }
