@@ -42,7 +42,7 @@ const Home = () => {
       />
 
       <div className="row rows-cols-1 row-cols-md-3 g-3 pb-3">
-        {pets.map((pet) => (
+        {pets?.map((pet) => (
           <PetCard key={pet.id} {...pet} />
         ))}
       </div>
