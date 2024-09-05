@@ -5,9 +5,9 @@
     { "path": "./tsconfig.node.json" }
   ],
   "compilerOptions": {
-    "jsx": "react-jsx", // O "react" para versiones anteriores a React 17
+    "jsx": "react-jsx",
     "esModuleInterop": true,
-    "module": "ESNext", // O "CommonJS" si necesitas soporte para Node.js
+    "module": "ESNext",
     "moduleResolution": "Node",
     "target": "ESNext",
     "strict": true,
@@ -15,6 +15,7 @@
     "paths": {
       "@/*": ["src/*"]
     },
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "types": ["jest", "@testing-library/jest-dom"]
   }
 }
