@@ -41,10 +41,14 @@ const Home = () => {
         onPetOfTheDayClick={onPetOfTheDayClick}
       />
 
-      <div className="row rows-cols-1 row-cols-md-3 g-3 pb-3">
-        {pets?.map((pet) => (
-          <PetCard key={pet.id} {...pet} />
-        ))}
+      <div className="container">
+        <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 pb-3">
+          {pets?.map((pet) => (
+            <div className="col" key={pet.id}>
+              <PetCard {...pet} />
+            </div>
+          ))}
+        </div>
       </div>
 
       {showPetOfTheDay && petOfTheDay && (

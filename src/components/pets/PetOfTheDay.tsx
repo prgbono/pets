@@ -12,7 +12,7 @@ const PetOfTheDay: React.FC<PetOfTheDayProps> = ({
       tabIndex={-1}
       style={{ display: showPetOfTheDay ? 'block' : 'none' }}
     >
-      <div className="modal-dialog modal-dialog-centered">
+      <div className="modal-dialog modal-dialog-centered modal-lg">
         <div className="modal-content">
           <div className="modal-header">
             <h5 className="modal-title">Pet of the Day</h5>

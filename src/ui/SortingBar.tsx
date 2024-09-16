@@ -17,30 +17,43 @@ const SortingBar = ({
 
   return (
     <nav className="navbar navbar-expand-lg navbar-transparent bg-transparent mb-4">
-      <div className="navbar-brand">{t('sort_by')}</div>
-      <div className="collapse navbar-collapse">
-        <ul className="navbar-nav">
-          {SORTING_OPTIONS.map((option) => (
-            <li
-              key={option}
-              className={`nav-item ${
-                activeOption === option ? 'active nav-item-active' : ''
-              }`}
-              onClick={() => onSortOptionClick(option)}
+      <div className="container-fluid">
+        <a className="navbar-brand">{t('sort_by')}</a>
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarResponsive"
+          aria-controls="navbarResponsive"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
+        <div className="collapse navbar-collapse" id="navbarResponsive">
+          <ul className="navbar-nav me-auto">
+            {SORTING_OPTIONS.map((option) => (
+              <li
+                key={option}
+                className={`nav-item ${
+                  activeOption === option ? 'active nav-item-active' : ''
+                }`}
+                onClick={() => onSortOptionClick(option)}
+              >
+                <a className="nav-link" href="#" role="button">
+                  {t(option)}
+                </a>
+              </li>
+            ))}
+          </ul>
+          <div className="ms-auto">
+            <button
+              className="btn btn-outline-primary"
+              onClick={onPetOfTheDayClick}
             >
-              <a className="nav-link" href="#" role="button">
-                {t(option)}
-              </a>
-            </li>
-          ))}
-        </ul>
-        <div className="ms-auto">
-          <button
-            className="btn btn-outline-primary"
-            onClick={onPetOfTheDayClick}
-          >
-            {t('navbar.pet_of_the_day')}
-          </button>
+              {t('navbar.pet_of_the_day')}
+            </button>
+          </div>
         </div>
       </div>
     </nav>

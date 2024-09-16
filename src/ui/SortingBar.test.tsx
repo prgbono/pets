@@ -37,8 +37,7 @@ describe('Testing in <SortingBar /> (Navbar)', () => {
     )
 
     const sortButtons = screen.getAllByRole('button')
-    const sortByNameButton = sortButtons[0]
-
+    const sortByNameButton = sortButtons[1]
     fireEvent.click(sortByNameButton)
 
     expect(mockOnSortOptionChange).toHaveBeenCalled()
