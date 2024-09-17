@@ -2,13 +2,17 @@ import { useCallback, useEffect, useState } from 'react'
 import { useFetch } from '../hooks/useFetch'
 import { PetContext } from './PetContext'
 import { Pet } from '../types'
-import { API_URL } from '../utils/constants'
+import {
+  API_URL,
+  SESSION_STORAGE_SORTED_BY,
+  SESSION_STORAGE_STORED_PETS
+} from '../utils/constants'
 
 export const PetProvider: React.FC<{ children: React.ReactNode }> = ({
   children
 }) => {
   const [pets, setPets] = useState<Pet[]>(() => {
-    const storedPets = sessionStorage.getItem('storedPets')
+    const storedPets = sessionStorage.getItem(SESSION_STORAGE_STORED_PETS)
     return storedPets ? JSON.parse(storedPets) : []
   })
   const { data, isLoading, hasError } = useFetch<Pet[]>(
@@ -17,7 +21,7 @@ export const PetProvider: React.FC<{ children: React.ReactNode }> = ({
 
   const onSortOptionChange = useCallback(
     (option: string) => {
-      sessionStorage.setItem('sortedBy', option)
+      sessionStorage.setItem(SESSION_STORAGE_SORTED_BY, option)
       setPets(
         [...pets].sort((a: Pet, b: Pet) => {
           switch (option) {
@@ -42,15 +46,15 @@ export const PetProvider: React.FC<{ children: React.ReactNode }> = ({
   )
 
   useEffect(() => {
-    const storedPets = sessionStorage.getItem('storedPets')
+    const storedPets = sessionStorage.getItem(SESSION_STORAGE_STORED_PETS)
     if (!storedPets && data) {
       setPets(data)
-      sessionStorage.setItem('storedPets', JSON.stringify(data))
+      sessionStorage.setItem(SESSION_STORAGE_STORED_PETS, JSON.stringify(data))
     }
   }, [data])
 
   useEffect(() => {
-    const sortedBy = sessionStorage.getItem('sortedBy')
+    const sortedBy = sessionStorage.getItem(SESSION_STORAGE_SORTED_BY)
     if (sortedBy) onSortOptionChange(sortedBy)
   }, [])
 

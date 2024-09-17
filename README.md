@@ -130,7 +130,7 @@ Tests are a must. There is no doubt of that in order to keep the code maintainab
 
 Regarding the location of the tests files, we normally make a new folder called **tests** at the same level of the folder **src** and try to do the folder `tests` as a mirror of `src` being the files in `test` only test files. In this case, I just dropped the file test next to the file what is being tested.
 
-# [Commit 'Persist state when refreshing - sessionStorage']()
+# [Commit 'Persist state when refreshing - sessionStorage'](https://github.com/prgbono/pets/commit/575dbe94d0aba96bd95a45694851ad016b01d7a7)
 To persist the sort done by the user when refreshing the browser we have choosen `sessionStarage` over `localStorage` because of `sessionStorage` is less aggresive. I mean, `sessionStarage` is only available in the tab the use is using, it is removed automatically when browser or tab is closed or browser session finished, while `localStorage` must be removed manually.
 
 # About the pagination.
