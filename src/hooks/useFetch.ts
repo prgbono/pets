@@ -6,21 +6,23 @@ type FetchState<T> = {
   hasError: string | null
 }
 
-export const useFetch = <T = unknown>(url: string) => {
+export const useFetch = <T = unknown>(url: string | null) => {
   const [state, setState] = useState<FetchState<T>>({
     data: null,
-    isLoading: true,
+    isLoading: url !== null,
     hasError: null
   })
 
   const getFetch = useCallback(async () => {
+    if (!url) return
+
     setState((prevState) => ({
       ...prevState,
       isLoading: true
     }))
 
     try {
-      const resp = await fetch(url)
+      const resp = await fetch(url as string)
       if (!resp.ok) {
         throw new Error('Failed to fetch')
       }

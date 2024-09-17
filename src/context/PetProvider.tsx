@@ -7,15 +7,17 @@ import { API_URL } from '../utils/constants'
 export const PetProvider: React.FC<{ children: React.ReactNode }> = ({
   children
 }) => {
-  const { data, isLoading, hasError } = useFetch<Pet[]>(API_URL)
-  const [pets, setPets] = useState<Pet[]>(data ?? [])
-
-  useEffect(() => {
-    setPets(data ?? [])
-  }, [data])
+  const [pets, setPets] = useState<Pet[]>(() => {
+    const storedPets = sessionStorage.getItem('storedPets')
+    return storedPets ? JSON.parse(storedPets) : []
+  })
+  const { data, isLoading, hasError } = useFetch<Pet[]>(
+    pets.length === 0 ? API_URL : null
+  )
 
   const onSortOptionChange = useCallback(
     (option: string) => {
+      sessionStorage.setItem('sortedBy', option)
       setPets(
         [...pets].sort((a: Pet, b: Pet) => {
           switch (option) {
@@ -38,6 +40,19 @@ export const PetProvider: React.FC<{ children: React.ReactNode }> = ({
     },
     [pets]
   )
+
+  useEffect(() => {
+    const storedPets = sessionStorage.getItem('storedPets')
+    if (!storedPets && data) {
+      setPets(data)
+      sessionStorage.setItem('storedPets', JSON.stringify(data))
+    }
+  }, [data])
+
+  useEffect(() => {
+    const sortedBy = sessionStorage.getItem('sortedBy')
+    if (sortedBy) onSortOptionChange(sortedBy)
+  }, [])
 
   return (
     <PetContext.Provider
