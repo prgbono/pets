@@ -8,7 +8,9 @@ const SortingBar = ({
   onPetOfTheDayClick
 }: SortingBarProps) => {
   const { t } = useTranslation()
-  const [activeOption, setActiveOption] = useState<string>(SORTING_OPTIONS[0])
+  const [activeOption, setActiveOption] = useState<string>(
+    sessionStorage.getItem('sortedBy') || ''
+  )
 
   const onSortOptionClick = (option: string) => {
     setActiveOption(option)
@@ -36,7 +38,7 @@ const SortingBar = ({
               <li
                 key={option}
                 className={`nav-item ${
-                  activeOption === option ? 'active nav-item-active' : ''
+                  activeOption === option ? 'nav-item-active' : ''
                 }`}
                 onClick={() => onSortOptionClick(option)}
               >
