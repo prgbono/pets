@@ -1,10 +1,8 @@
 {
   "files": [],
-  "references": [
-    { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" }
-  ],
+  "include": ["src", ".eslintrc.cjs", "./vite.config.ts"],
   "compilerOptions": {
+    "types": ["jest", "@testing-library/jest-dom"],
     "jsx": "react-jsx",
     "esModuleInterop": true,
     "module": "ESNext",
@@ -13,9 +11,25 @@
     "strict": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["./src/*"],
+      "@/components/*": ["./src/components/*"],
+      "@/styles/*": ["./src/styles/*"],
+      "@/config/*": ["./src/config/*"],
+      "@/utils/*": ["./src/utils/*"],
+      "@/common/*": ["./src/common/*"],
+      "@/assets/*": ["./src/assets/*"],
+      "@/pages/*": ["./src/pages/*"],
+      "@/routes/*": ["./src/routes/*"],
+      "@/hooks/*": ["./src/hooks/*"],
+      "@/store/*": ["./src/store/*"],
+      "@/api/*": ["./src/api/*"],
+      "@/context/*": ["./src/context/*"],
+      "@/i18n/*": ["./src/i18n/*"],
+      "@/router/*": ["./src/router/*"],
+      "@/types/*": ["./src/types/*"],
+      "@/ui/*": ["./src/ui/*"]
     },
-    "resolveJsonModule": true,
-    "types": ["jest", "@testing-library/jest-dom"]
-  }
+    "resolveJsonModule": true
+  },
+  "references": [{ "path": "./tsconfig.node.json" }]
 }
