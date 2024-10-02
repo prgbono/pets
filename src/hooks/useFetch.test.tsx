@@ -1,8 +1,9 @@
 import { render, renderHook, screen } from '@testing-library/react'
-import { useFetch } from '../../src/hooks/useFetch'
-import Home from '../components/pets/Home'
+
+import Home from '@/components/pets/Home'
 import { MemoryRouter } from 'react-router-dom'
-import { Pet } from '../types'
+import { Pet } from '@/types'
+import { useFetch } from '@/hooks/useFetch'
 
 jest.mock('./useFetch')
 

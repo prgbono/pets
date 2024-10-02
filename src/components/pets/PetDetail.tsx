@@ -1,7 +1,8 @@
 import { Navigate, useNavigate, useParams } from 'react-router-dom'
-import { useFetch } from '../../hooks/useFetch'
-import { Pet } from '../../types'
-import { API_URL } from '../../utils/constants'
+
+import { API_URL } from '@/utils/constants'
+import { Pet } from '@/types'
+import { useFetch } from '@/hooks/useFetch'
 
 const PetDetail = () => {
   // get petId from router params

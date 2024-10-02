@@ -1,5 +1,5 @@
-import { PetOfTheDayProps } from '../../types'
 import PetCard from './PetCard'
+import { PetOfTheDayProps } from '@/types'
 
 const PetOfTheDay: React.FC<PetOfTheDayProps> = ({
   pet,

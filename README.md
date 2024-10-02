@@ -133,8 +133,10 @@ Regarding the location of the tests files, we normally make a new folder called 
 # [Commit 'Persist state when refreshing - sessionStorage'](https://github.com/prgbono/pets/commit/575dbe94d0aba96bd95a45694851ad016b01d7a7)
 To persist the sort done by the user when refreshing the browser we have choosen `sessionStarage` over `localStorage` because of `sessionStorage` is less aggresive. I mean, `sessionStarage` is only available in the tab the use is using, it is removed automatically when browser or tab is closed or browser session finished, while `localStorage` must be removed manually.
 
-# About the pagination.
+# [Commit 'Add config for better organisation of imports by setting aliases'](https://github.com/prgbono/pets/commit/a334b4c1f1d1e3f823300b643fc6e09de1698ff2)
+Modify config files to have these kind of imports `import { useFetch } from '@/hooks/useFetch'` instead of `import { useFetch } from '../../hooks/useFetch'`
 
+# About the pagination.
 - TODO: - I haven't had the time to implement the pagination but I'd like to comment how I would do that:
 
 1. Manage pagination state in the `<Home />` component
@@ -150,18 +152,3 @@ To persist the sort done by the user when refreshing the browser we have choosen
 3. It is a good idea a component just for pagination which would receive props like `itemsPerPage`, `toatlItems` and `pageNumber`
 4. It is needed to handle errors and loading time.
 5. Optionally, we can address optimization issues with lazy loading (server) and manage several ways to present the items (for instance infinitive scrolling)
-
-# About styling and animations
-
-Not being these issues the most important things in this test, we have decided to incorporate them by their CDN's (see links in file `/root/index.html`). I am aware Bootstrap is not the most motivating UI material :)
-
-# About Responsiveness
-
-This topic hasn't been even mentioned in the documentation so that we haven't had an eye on it. In case it would be needed we should go with media queries mostly, moreover some styling library and its responsiveness classes to make the work easier.
-
-# About imports
-
-- TODO: -It is needed to config an alias to avoid these kind of imports:
-  `import { useFetch } from '../../hooks/useFetch'`
-  Should be quite better:
-  `import { useFetch } from '@/hooks/useFetch'`

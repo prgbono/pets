@@ -1,17 +1,22 @@
 ## TODO:
-
-- [x] Stash: sobre el package y cómo cambiar el puerto
+- [ ] We should use useMemo when fetching pets list and pet details. We are making request in the root of their components (`PetProvider.tsx` and `PetDetail.tsx`). Every time their states change the components are re-rendered so that a new request is done. By using `useMemo` we memorize the values retrieved and the performance would be improved.
+- [ ] Paginación. (See approach in Readme file)
+- [ ] Lanzarlo con GitHub pages (sección 7 en Udemy React)
+- [ ] Filtrar por kind, y por alguna cosa más. Los filtros hay que aprender a hacerlos!
+- [ ] Que pase los tests tras las modificaciones
+- [ ] <NotFound /> component for being re-usable and add it to AppRouter file
+- [ ] Sustituir Bootstrap por Tailwind
+- [ ] Stash: Ejemplo sobre diccionarios. Usarlos cuando venga la ocasión
+- [ ] Check Audit/Lighthouse
+- [ ] Check this UI tips - https://dev.to/harimanok/make-your-app-feel-better-11-ui-tips-for-beginnermid-level-developers-1e1n
+- [X] the absence of adapters for the API data model highlights an issue with flexibility and scalability, potentially making future development and maintenance more difficult. This also raises concerns about compatibility with different data sources or changes in the API structure. ESTO ES SIMPLEMENTE METER UN ARCHIVO ADAPTADOR PARA TIPIFICAR LAS RESPUESTAS DE LA API. ES ALGO SIMILAR A LO QUE HAY HECHO EN LA CARPETA TYPES/INDEX
+- [X] Alias for the imports (See Readme)
+- [ ] Sustituir fetch por Axios? - Pros y contras - https://dev.to/doccaio/axios-vs-fetch-1k1k
+- [X] Stash: sobre el package y cómo cambiar el puerto
 - [X] Hacerlo responsivo. Métodos:
     - [X] https://www.lambdatest.com/lt-browser -> Navegador LT Browser
     - [X] https://developer.chrome.com/docs/lighthouse/overview/ -> DevTools / Lighthouse
     - [X] responsively.app
-- [ ] We should use useMemo when fetching pets list and pet details. We are making request in the root of their components (`PetProvider.tsx` and `PetDetail.tsx`). Every time their states change the components are re-rendered so that a new request is done. By using `useMemo` we memorize the values retrieved and the performance would be improved.
-- [ ] Lanzarlo con GitHub pages (sección 7 en Udemy React)
-- [ ] Persistir el sorting (avoid refreshing) y con él el estado
-- [ ] Paginación. (See approach in Readme file)
-- [ ] Filtrar por kind, y por alguna cosa más. Los filtros hay que aprender a hacerlos!
-- [ ] <NotFound /> component for being re-usable and add it to AppRouter file
-- [ ] Alias for the imports (See Readme)
-- [ ] Stash: sobre diccionarios.
-- [ ] Sustituir Bootstrap por Tailwind
-- [ ] Que pase los tests tras las modificaciones
+- [X] Persistir el sorting (avoid refreshing) y con él el estado
+- [X] Arreglar la clase activa en el navBar
+

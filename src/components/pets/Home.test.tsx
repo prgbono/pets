@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react'
 import Home from './Home'
-import { PetContext } from '../../context/PetContext'
+import { PetContext } from '@/context/PetContext'
 import { MemoryRouter } from 'react-router-dom'
 
 describe('Tests in <Home /> (PetContext)', () => {

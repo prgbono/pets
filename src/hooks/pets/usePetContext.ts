@@ -1,6 +1,6 @@
+import { PetContext } from '@/context/PetContext'
+import { PetContextType } from '@/types'
 import { useContext } from 'react'
-import { PetContext } from '../../context/PetContext'
-import { PetContextType } from '../../types'
 
 export const usePetContext = (): PetContextType => {
   const petContext = useContext(PetContext)
