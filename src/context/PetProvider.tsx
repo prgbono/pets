@@ -1,12 +1,13 @@
-import { useCallback, useEffect, useState } from 'react'
-import { useFetch } from '../hooks/useFetch'
-import { PetContext } from './PetContext'
-import { Pet } from '../types'
 import {
   API_URL,
   SESSION_STORAGE_SORTED_BY,
   SESSION_STORAGE_STORED_PETS
-} from '../utils/constants'
+} from '@/utils/constants'
+import { useCallback, useEffect, useState } from 'react'
+
+import { Pet } from '@/types'
+import { PetContext } from './PetContext'
+import { useFetch } from '@/hooks/useFetch'
 
 export const PetProvider: React.FC<{ children: React.ReactNode }> = ({
   children

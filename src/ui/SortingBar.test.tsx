@@ -1,6 +1,7 @@
 import { fireEvent, render, screen } from '@testing-library/react'
+
+import { PetContext } from '@/context/PetContext'
 import SortingBar from './SortingBar'
-import { PetContext } from '../context/PetContext'
 
 describe('Testing in <SortingBar /> (Navbar)', () => {
   const pets = [

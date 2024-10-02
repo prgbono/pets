@@ -1,4 +1,4 @@
-import { useEffect, useState, useCallback } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 
 type FetchState<T> = {
   data: T | null

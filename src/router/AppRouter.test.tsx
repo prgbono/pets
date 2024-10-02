@@ -1,8 +1,9 @@
 import { fireEvent, render, screen } from '@testing-library/react'
-import { MemoryRouter } from 'react-router-dom'
+
 import AppRouter from './AppRouter'
-import Home from '../components/pets/Home'
-import { PetContext } from '../context/PetContext'
+import Home from '@/components/pets/Home'
+import { MemoryRouter } from 'react-router-dom'
+import { PetContext } from '@/context/PetContext'
 
 describe('Testing <AppRouter />', () => {
   const pets = [

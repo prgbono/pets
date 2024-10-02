@@ -1,6 +1,7 @@
 import './App.css'
-import PetProvider from './context/PetProvider'
+
 import AppRouter from './router/AppRouter'
+import PetProvider from './context/PetProvider'
 
 function App() {
   return (

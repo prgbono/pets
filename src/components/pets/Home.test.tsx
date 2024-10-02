@@ -1,7 +1,8 @@
 import { render, screen } from '@testing-library/react'
+
 import Home from './Home'
-import { PetContext } from '@/context/PetContext'
 import { MemoryRouter } from 'react-router-dom'
+import { PetContext } from '@/context/PetContext'
 
 describe('Tests in <Home /> (PetContext)', () => {
   const pets = [

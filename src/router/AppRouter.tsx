@@ -1,6 +1,7 @@
 import { Navigate, Route, Routes } from 'react-router-dom'
-import PetDetail from '../components/pets/PetDetail'
-import Home from '../components/pets/Home'
+
+import Home from '@/components/pets/Home'
+import PetDetail from '@/components/pets/PetDetail'
 
 const AppRouter = () => {
   return (

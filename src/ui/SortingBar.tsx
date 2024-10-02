@@ -1,6 +1,6 @@
+import { SORTING_OPTIONS } from '@/utils/constants'
+import { SortingBarProps } from '@/types'
 import { useState } from 'react'
-import { SORTING_OPTIONS } from '../utils/constants'
-import { SortingBarProps } from '../types'
 import { useTranslation } from 'react-i18next'
 
 const SortingBar = ({
