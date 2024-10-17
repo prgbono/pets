@@ -136,6 +136,9 @@ To persist the sort done by the user when refreshing the browser we have choosen
 # [Commit 'Add config for better organisation of imports by setting aliases'](https://github.com/prgbono/pets/commit/a334b4c1f1d1e3f823300b643fc6e09de1698ff2)
 Modify config files to have these kind of imports `import { useFetch } from '@/hooks/useFetch'` instead of `import { useFetch } from '../../hooks/useFetch'`
 
+# [Commit 'Replace Bootstrap classes with Tailwind ones'] (https://github.com/prgbono/pets/commit/a400adab104644e265a01270ccb57d48dbd40337)
+Changed UI styles. From CDN Bootstrap to Tailwind CSS.
+
 # About the pagination.
 - TODO: - I haven't had the time to implement the pagination but I'd like to comment how I would do that:
 
