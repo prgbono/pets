@@ -6,14 +6,15 @@ const LanguageSwitcher: React.FC = () => {
 
   return (
     <div>
+      {/* TODO: Componetise these buttons  */}
       <button
-        className="btn btn-sm btn-outline-primary"
+        className="px-4 py-2 text-sm text-blue-500 bg-transparent border border-blue-500 rounded hover:bg-blue-500 hover:text-white focus:outline-none"
         onClick={() => i18n.changeLanguage('en')}
       >
         English
       </button>
       <button
-        className="btn btn-sm btn-outline-primary"
+        className="px-4 py-2 text-sm text-blue-500 bg-transparent border border-blue-500 rounded hover:bg-blue-500 hover:text-white focus:outline-none"
         onClick={() => i18n.changeLanguage('es')}
       >
         Español

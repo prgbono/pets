@@ -8,33 +8,26 @@ const PetOfTheDay: React.FC<PetOfTheDayProps> = ({
 }) => {
   return (
     <div
-      className={`modal fade ${showPetOfTheDay ? 'show' : ''}`}
+      className={`fixed inset-0 z-50 flex items-center justify-center ${
+        showPetOfTheDay ? 'block' : 'hidden'
+      }`}
       tabIndex={-1}
-      style={{ display: showPetOfTheDay ? 'block' : 'none' }}
     >
-      <div className="modal-dialog modal-dialog-centered modal-lg">
-        <div className="modal-content">
-          <div className="modal-header">
-            <h5 className="modal-title">Pet of the Day</h5>
-            <button
-              type="button"
-              className="btn-close"
-              onClick={onCloseModal}
-              aria-label="Close"
-            />
-          </div>
-          <div className="modal-body">
-            <PetCard {...pet} />
-          </div>
-          <div className="modal-footer">
-            <button
-              type="button"
-              className="btn btn-secondary"
-              onClick={onCloseModal}
-            >
-              Close
-            </button>
-          </div>
+      <div className="max-w-lg bg-white rounded-lg shadow-lg">
+        <div className="flex items-center justify-between p-4">
+          <h5 className="text-lg font-semibold">Pet of the Day</h5>
+        </div>
+        <div className="p-4">
+          <PetCard {...pet} />
+        </div>
+        <div className="flex justify-end p-4">
+          <button
+            type="button"
+            className="px-4 py-2 text-white bg-gray-500 rounded-md hover:bg-gray-600"
+            onClick={onCloseModal}
+          >
+            Close
+          </button>
         </div>
       </div>
     </div>

@@ -28,41 +28,48 @@ const PetDetail = () => {
   }
 
   return (
-    <div className="row mt-5">
-      <div className="col-6">
+    <div className="flex flex-wrap mt-20">
+      <div className="relative w-full overflow-hidden border rounded-md h-96 animate-fade-in-left">
         <img
           src={data.photo_url}
           alt={data.name}
-          className="img-thumbnail img-fluid w-100 animate__animated animate__fadeInLeft"
+          className="absolute inset-0 object-cover w-full h-full"
         />
       </div>
 
-      <div className="col-6">
-        <h3>{data.name}</h3>
-        <ul className="list-group list-group-flush">
-          <li className="list-group-item">
+      <div className="w-1/2 pl-5">
+        <h5 className="mb-2 text-xl font-semibold text-gray-800">
+          {data.name}
+        </h5>
+        <ul className="list-disc list-inside">
+          <li className="py-2">
             <b>Kind:</b> {data.kind}
           </li>
-          <li className="list-group-item">
+          <li className="py-2">
             <b>Weight:</b> {data.weight}
           </li>
-          <li className="list-group-item">
+          <li className="py-2">
             <b>Height:</b> {data.height}
           </li>
-          <li className="list-group-item">
+          <li className="py-2">
             <b>Length:</b> {data.length}
           </li>
           {data.kind === 'cat' && (
-            <li className="list-group-item">
+            <li className="py-2">
               <b>Number of lives:</b> {data.number_of_lives}
             </li>
           )}
         </ul>
 
-        <h5 className="mt-3"> Description: </h5>
+        <h5 className="mt-4">
+          <b>Description:</b>
+        </h5>
         <p>{data.description}</p>
 
-        <button className="btn btn-outline-primary" onClick={goBack}>
+        <button
+          className="px-4 py-2 mt-4 text-blue-500 bg-transparent border border-blue-500 rounded-md hover:bg-blue-500 hover:text-white"
+          onClick={goBack}
+        >
           Go back
         </button>
       </div>

@@ -18,44 +18,37 @@ const SortingBar = ({
   }
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-transparent bg-transparent mb-4">
-      <div className="container-fluid">
-        <a className="navbar-brand">{t('sort_by')}</a>
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarResponsive"
-          aria-controls="navbarResponsive"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
-        <div className="collapse navbar-collapse" id="navbarResponsive">
-          <ul className="navbar-nav me-auto">
+    <nav className="flex items-center justify-between mb-4 bg-transparent">
+      <div className="container flex items-center justify-between mx-auto">
+        <span className="text-lg text-blue-500 cursor-default">
+          {t('sort_by')}
+        </span>
+        <div className="hidden p-4 md:flex" id="navbarResponsive">
+          <ul className="flex space-x-4">
             {SORTING_OPTIONS.map((option) => (
               <li
                 key={option}
-                className={`nav-item ${
-                  activeOption === option ? 'nav-item-active' : ''
+                className={`cursor-pointer ${
+                  activeOption === option
+                    ? 'font-bold text-blue-500'
+                    : 'text-gray-700'
                 }`}
                 onClick={() => onSortOptionClick(option)}
               >
-                <a className="nav-link" href="#" role="button">
+                <span className="hover:text-blue-500" role="button">
                   {t(option)}
-                </a>
+                </span>
               </li>
             ))}
           </ul>
-          <div className="ms-auto">
-            <button
-              className="btn btn-outline-primary"
-              onClick={onPetOfTheDayClick}
-            >
-              {t('navbar.pet_of_the_day')}
-            </button>
-          </div>
+        </div>
+        <div className="ml-auto">
+          <button
+            className="px-4 py-2 text-blue-500 bg-transparent border border-blue-500 rounded hover:bg-blue-500 hover:text-white"
+            onClick={onPetOfTheDayClick}
+          >
+            {t('navbar.pet_of_the_day')}
+          </button>
         </div>
       </div>
     </nav>

@@ -42,10 +42,10 @@ const Home = () => {
         onPetOfTheDayClick={onPetOfTheDayClick}
       />
 
-      <div className="container">
-        <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 pb-3">
+      <div className="container mx-auto">
+        <div className="grid grid-cols-1 gap-3 pb-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           {pets?.map((pet) => (
-            <div className="col" key={pet.id}>
+            <div key={pet.id}>
               <PetCard {...pet} />
             </div>
           ))}
@@ -60,7 +60,7 @@ const Home = () => {
         />
       )}
       {showPetOfTheDay && petOfTheDay && (
-        <div className="modal-backdrop fade show"></div>
+        <div className="transition-opacity duration-300 bg-black bg-opacity-50"></div>
       )}
 
       <Footer />

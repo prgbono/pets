@@ -34,4 +34,4 @@ export const calculatePetHealth = (
 }
 
 export const getTextColorClass = (health: string) =>
-  health === 'UNHEALTHY' ? 'text-danger' : 'text-success'
+  health === 'UNHEALTHY' ? 'text-red-600' : 'text-green-600'
