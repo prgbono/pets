@@ -1,5 +1,5 @@
 import {
-  API_URL,
+  DEFAULT_ITEMS_PER_PAGE,
   SESSION_STORAGE_SORTED_BY,
   SESSION_STORAGE_STORED_PETS
 } from '@/utils/constants'
@@ -7,7 +7,6 @@ import { useCallback, useEffect, useState } from 'react'
 
 import { Pet } from '@/types'
 import { PetContext } from './PetContext'
-import { useFetch } from '@/hooks/useFetch'
 
 export const PetProvider: React.FC<{ children: React.ReactNode }> = ({
   children
@@ -16,9 +15,17 @@ export const PetProvider: React.FC<{ children: React.ReactNode }> = ({
     const storedPets = sessionStorage.getItem(SESSION_STORAGE_STORED_PETS)
     return storedPets ? JSON.parse(storedPets) : []
   })
-  const { data, isLoading, hasError } = useFetch<Pet[]>(
-    pets.length === 0 ? API_URL : null
-  )
+
+  // Pagination
+  const [currentPage, setCurrentPage] = useState<number>(1)
+  const itemsPerPage: number = DEFAULT_ITEMS_PER_PAGE
+  // TODO: const [totalPages, setTotalPages] = useState<number>(1)
+  const handlePrevPage = () => {
+    setCurrentPage((prevPage) => Math.max(prevPage - 1, 1))
+  }
+  const handleNextPage = () => {
+    setCurrentPage((prevPage) => prevPage + 1)
+  }
 
   const onSortOptionChange = useCallback(
     (option: string) => {
@@ -46,26 +53,36 @@ export const PetProvider: React.FC<{ children: React.ReactNode }> = ({
     [pets]
   )
 
-  useEffect(() => {
-    const storedPets = sessionStorage.getItem(SESSION_STORAGE_STORED_PETS)
-    if (!storedPets && data) {
-      setPets(data)
-      sessionStorage.setItem(SESSION_STORAGE_STORED_PETS, JSON.stringify(data))
-    }
-  }, [data])
+  // useEffect(() => {
+  //   const storedPets = sessionStorage.getItem(SESSION_STORAGE_STORED_PETS)
+  //   if (!storedPets && data) {
+  //     setPets(data)
+  //     sessionStorage.setItem(SESSION_STORAGE_STORED_PETS, JSON.stringify(data))
+  //   }
+  // }, [data])
 
   useEffect(() => {
-    const sortedBy = sessionStorage.getItem(SESSION_STORAGE_SORTED_BY)
-    if (sortedBy) onSortOptionChange(sortedBy)
+    const storedPets = sessionStorage.getItem(SESSION_STORAGE_STORED_PETS)
+    if (storedPets) {
+      setPets(JSON.parse(storedPets))
+    }
   }, [])
+
+  // useEffect(() => {
+  //   const sortedBy = sessionStorage.getItem(SESSION_STORAGE_SORTED_BY)
+  //   if (sortedBy) onSortOptionChange(sortedBy)
+  // }, [])
 
   return (
     <PetContext.Provider
       value={{
         pets,
-        isLoading,
-        hasError,
-        onSortOptionChange
+        setPets,
+        currentPage,
+        itemsPerPage,
+        onSortOptionChange,
+        handlePrevPage,
+        handleNextPage
       }}
     >
       {children}

@@ -12,8 +12,11 @@ export type Pet = {
 
 export type PetContextType = {
   pets: Pet[] | []
-  isLoading: boolean
-  hasError: string | null
+  setPets: (pets: Pet[]) => void
+  currentPage: number
+  itemsPerPage: number
+  handleNextPage: () => void
+  handlePrevPage: () => void
   onSortOptionChange: (option: string) => void
 }
 
