@@ -7,7 +7,6 @@ import { Pet } from '@/types'
 import PetOfTheDay from './PetOfTheDay'
 import SortingBar from '@/ui/SortingBar'
 import { usePetContext } from '@/hooks/pets/usePetContext'
-import Pagination from '../common/Pagination'
 import PetList from './PetList'
 
 const Home = () => {
@@ -46,7 +45,6 @@ const Home = () => {
         <div className="transition-opacity duration-300 bg-black bg-opacity-50"></div>
       )}
 
-      <Pagination />
       <Footer />
     </>
   )

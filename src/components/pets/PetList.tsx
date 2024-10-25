@@ -5,9 +5,10 @@ import { Pet } from '@/types'
 import { useFetch } from '@/hooks/useFetch'
 import { usePetContext } from '@/hooks/pets/usePetContext'
 import PetCard from './PetCard'
+import Pagination from '../common/Pagination'
 
 const PetList: React.FC = () => {
-  const { currentPage, itemsPerPage, setPets } = usePetContext()
+  const { currentPage, itemsPerPage, setPets, pets } = usePetContext()
 
   const { data, isLoading, hasError } = useFetch<Pet[]>(
     `${API_URL}?_page=${currentPage}&_per_page=${itemsPerPage}`
@@ -23,21 +24,24 @@ const PetList: React.FC = () => {
   if (hasError) return <div>Error: {hasError}</div>
 
   return (
-    <div className="container mx-auto">
-      <div className="grid grid-cols-1 gap-3 pb-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-        {data && data.length > 0 ? (
-          <>
-            {data.map((pet) => (
-              <div key={pet.id}>
-                <PetCard {...pet} />
-              </div>
-            ))}
-          </>
-        ) : (
-          <p>No pets available</p>
-        )}
+    <>
+      <div className="container mx-auto">
+        <div className="grid grid-cols-1 gap-3 pb-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+          {Array.isArray(data) && data.length > 0 ? (
+            <>
+              {pets.map((pet) => (
+                <div key={pet.id}>
+                  <PetCard {...pet} />
+                </div>
+              ))}
+            </>
+          ) : (
+            <p>No pets available</p>
+          )}
+        </div>
       </div>
-    </div>
+      <Pagination />
+    </>
   )
 }
 

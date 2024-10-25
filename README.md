@@ -139,19 +139,3 @@ Modify config files to have these kind of imports `import { useFetch } from '@/h
 # [Commit 'Replace Bootstrap classes with Tailwind ones'] (https://github.com/prgbono/pets/commit/a400adab104644e265a01270ccb57d48dbd40337)
 Changed UI styles. From CDN Bootstrap to Tailwind CSS.
 
-# About the pagination.
-- TODO: - I haven't had the time to implement the pagination but I'd like to comment how I would do that:
-
-1. Manage pagination state in the `<Home />` component
-   We must keep the pagination state in the state of the `<Home />` component. This includes current page, number of items per page and total number of pages
-   ```
-    const [currentPage, setCurrentPage] = useState<number>(1);
-    const [itemsPerPage, setItemsPerPage] = useState<number>(10)
-    const [totalPages, setTotalPages] = useState<number>(1)
-   ```
-   In our call to the api, we should include url params `_page`and `_per_page`
-   We also need to know the index of the first and the last item fetched.
-2. Button for `Next Page` and `Previous Page`
-3. It is a good idea a component just for pagination which would receive props like `itemsPerPage`, `toatlItems` and `pageNumber`
-4. It is needed to handle errors and loading time.
-5. Optionally, we can address optimization issues with lazy loading (server) and manage several ways to present the items (for instance infinitive scrolling)

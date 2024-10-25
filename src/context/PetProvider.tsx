@@ -53,13 +53,11 @@ export const PetProvider: React.FC<{ children: React.ReactNode }> = ({
     [pets]
   )
 
-  // useEffect(() => {
-  //   const storedPets = sessionStorage.getItem(SESSION_STORAGE_STORED_PETS)
-  //   if (!storedPets && data) {
-  //     setPets(data)
-  //     sessionStorage.setItem(SESSION_STORAGE_STORED_PETS, JSON.stringify(data))
-  //   }
-  // }, [data])
+  useEffect(() => {
+    if (pets.length > 0) {
+      sessionStorage.setItem(SESSION_STORAGE_STORED_PETS, JSON.stringify(pets))
+    }
+  }, [pets])
 
   useEffect(() => {
     const storedPets = sessionStorage.getItem(SESSION_STORAGE_STORED_PETS)
@@ -68,10 +66,10 @@ export const PetProvider: React.FC<{ children: React.ReactNode }> = ({
     }
   }, [])
 
-  // useEffect(() => {
-  //   const sortedBy = sessionStorage.getItem(SESSION_STORAGE_SORTED_BY)
-  //   if (sortedBy) onSortOptionChange(sortedBy)
-  // }, [])
+  useEffect(() => {
+    const sortedBy = sessionStorage.getItem(SESSION_STORAGE_SORTED_BY)
+    if (sortedBy) onSortOptionChange(sortedBy)
+  }, [])
 
   return (
     <PetContext.Provider
