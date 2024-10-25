@@ -1,48 +1,33 @@
 import { useCallback, useEffect, useState } from 'react'
 
-import { Pet } from '@/types'
-import { usePetContext } from './pets/usePetContext'
-
 type FetchState<T> = {
   data: T | null
   isLoading: boolean
   hasError: string | null
 }
 
-export const useFetch = <T = unknown>(baseUrl: string | null) => {
-  // TODO: Uncouple pagination with useFetch!!
-  const { currentPage, itemsPerPage, setPets } = usePetContext()
-
+export const useFetch = <T = unknown>(url: string | null) => {
   const [state, setState] = useState<FetchState<T>>({
     data: null,
-    isLoading: baseUrl !== null,
+    isLoading: !!url,
     hasError: null
   })
 
-  const getFetch = useCallback(async () => {
-    if (!baseUrl) return
-    const url = `${baseUrl}?_page=${currentPage}&_per_page=${itemsPerPage}`
-    setState((prevState) => ({
-      ...prevState,
-      isLoading: true
-    }))
+  const fetchData = useCallback(async () => {
+    if (!url) return
+
+    setState({ data: null, isLoading: true, hasError: null })
 
     try {
-      const resp = await fetch(url as string)
+      const resp = await fetch(url)
 
       if (!resp.ok) {
-        throw new Error('Failed to fetch')
+        throw new Error('Failed to fetch data')
       }
 
       const data: T = await resp.json()
 
-      setPets(data as Pet[])
-
-      setState({
-        data,
-        isLoading: false,
-        hasError: null
-      })
+      setState({ data, isLoading: false, hasError: null })
     } catch (error) {
       let errorMessage = 'An unknown error occurred'
       if (error instanceof Error) {
@@ -54,11 +39,11 @@ export const useFetch = <T = unknown>(baseUrl: string | null) => {
         hasError: errorMessage
       })
     }
-  }, [baseUrl, currentPage, itemsPerPage, setPets])
+  }, [url])
 
   useEffect(() => {
-    getFetch()
-  }, [getFetch])
+    fetchData()
+  }, [fetchData])
 
   return {
     data: state.data,
