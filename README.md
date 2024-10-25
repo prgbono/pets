@@ -136,6 +136,9 @@ To persist the sort done by the user when refreshing the browser we have choosen
 # [Commit 'Add config for better organisation of imports by setting aliases'](https://github.com/prgbono/pets/commit/a334b4c1f1d1e3f823300b643fc6e09de1698ff2)
 Modify config files to have these kind of imports `import { useFetch } from '@/hooks/useFetch'` instead of `import { useFetch } from '../../hooks/useFetch'`
 
-# [Commit 'Replace Bootstrap classes with Tailwind ones'] (https://github.com/prgbono/pets/commit/a400adab104644e265a01270ccb57d48dbd40337)
+# [Commit 'Replace Bootstrap classes with Tailwind ones'](https://github.com/prgbono/pets/commit/a400adab104644e265a01270ccb57d48dbd40337)
 Changed UI styles. From CDN Bootstrap to Tailwind CSS.
+
+# Commits [20a88ec](https://github.com/prgbono/pets/commit/20a88ec399afc24243f61dc23c23b8612252b21a), [fb95599](https://github.com/prgbono/pets/commit/fb95599e5ead2df3071445950ba7716acc87d037) and [7d856ac](https://github.com/prgbono/pets/commit/7d856acfc797a6fe7926a50628543f00242b92ac)
+Pagination. The second commit uncouple de custom hook `useFetch` we are using for fetching data from pagination itself.
 
