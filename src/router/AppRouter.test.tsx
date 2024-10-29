@@ -59,8 +59,8 @@ describe('Testing <AppRouter />', () => {
       </MemoryRouter>
     )
 
-    expect(screen.getByTestId('link-to-pet-detail')).toBeTruthy()
+    expect(screen.getByTestId('link-to-pet-detail')).toBeInTheDocument()
     fireEvent.click(screen.getByTestId('link-to-pet-detail'))
-    expect(screen.getByText('mock name')).toBeTruthy()
+    expect(screen.getByText('mock name')).toBeInTheDocument()
   })
 })

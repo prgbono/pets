@@ -16,10 +16,9 @@ export const PetProvider: React.FC<{ children: React.ReactNode }> = ({
     return storedPets ? JSON.parse(storedPets) : []
   })
 
-  // Pagination
   const [currentPage, setCurrentPage] = useState<number>(1)
   const itemsPerPage: number = DEFAULT_ITEMS_PER_PAGE
-  // TODO: const [totalPages, setTotalPages] = useState<number>(1)
+
   const handlePrevPage = () => {
     setCurrentPage((prevPage) => Math.max(prevPage - 1, 1))
   }
@@ -69,7 +68,7 @@ export const PetProvider: React.FC<{ children: React.ReactNode }> = ({
   useEffect(() => {
     const sortedBy = sessionStorage.getItem(SESSION_STORAGE_SORTED_BY)
     if (sortedBy) onSortOptionChange(sortedBy)
-  }, [])
+  }, [onSortOptionChange])
 
   return (
     <PetContext.Provider

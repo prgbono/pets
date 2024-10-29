@@ -8,7 +8,7 @@ import PetCard from './PetCard'
 import Pagination from '../common/Pagination'
 
 const PetList: React.FC = () => {
-  const { currentPage, itemsPerPage, setPets, pets } = usePetContext()
+  const { currentPage, itemsPerPage, pets, setPets } = usePetContext()
 
   const { data, isLoading, hasError } = useFetch<Pet[]>(
     `${API_URL}?_page=${currentPage}&_per_page=${itemsPerPage}`
@@ -27,7 +27,7 @@ const PetList: React.FC = () => {
     <>
       <div className="container mx-auto">
         <div className="grid grid-cols-1 gap-3 pb-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-          {Array.isArray(data) && data.length > 0 ? (
+          {Array.isArray(pets) && pets.length > 0 ? (
             <>
               {pets.map((pet) => (
                 <div key={pet.id}>
