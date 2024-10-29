@@ -1,5 +1,6 @@
 import { render, screen } from '@testing-library/react'
 
+import { DEFAULT_ITEMS_PER_PAGE } from '@/utils/constants'
 import Home from './Home'
 import { MemoryRouter } from 'react-router-dom'
 import { PetContext } from '@/context/PetContext'
@@ -38,9 +39,12 @@ describe('Tests in <Home /> (PetContext)', () => {
       <PetContext.Provider
         value={{
           pets: [],
-          isLoading: false,
-          hasError: null,
-          onSortOptionChange: jest.fn()
+          setPets: jest.fn(),
+          currentPage: 1,
+          itemsPerPage: DEFAULT_ITEMS_PER_PAGE,
+          onSortOptionChange: jest.fn(),
+          handleNextPage: jest.fn(),
+          handlePrevPage: jest.fn()
         }}
       >
         <Home />
@@ -55,9 +59,12 @@ describe('Tests in <Home /> (PetContext)', () => {
         <PetContext.Provider
           value={{
             pets,
-            isLoading: false,
-            hasError: null,
-            onSortOptionChange: jest.fn()
+            setPets: jest.fn(),
+            currentPage: 1,
+            itemsPerPage: DEFAULT_ITEMS_PER_PAGE,
+            onSortOptionChange: jest.fn(),
+            handleNextPage: jest.fn(),
+            handlePrevPage: jest.fn()
           }}
         >
           <Home />

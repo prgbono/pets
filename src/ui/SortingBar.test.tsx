@@ -1,5 +1,6 @@
 import { fireEvent, render, screen } from '@testing-library/react'
 
+import { DEFAULT_ITEMS_PER_PAGE } from '@/utils/constants'
 import { PetContext } from '@/context/PetContext'
 import SortingBar from './SortingBar'
 
@@ -24,10 +25,13 @@ describe('Testing in <SortingBar /> (Navbar)', () => {
     render(
       <PetContext.Provider
         value={{
-          pets: pets,
-          isLoading: false,
-          hasError: null,
-          onSortOptionChange: mockOnSortOptionChange
+          pets,
+          setPets: jest.fn(),
+          currentPage: 1,
+          itemsPerPage: DEFAULT_ITEMS_PER_PAGE,
+          onSortOptionChange: jest.fn(),
+          handleNextPage: jest.fn(),
+          handlePrevPage: jest.fn()
         }}
       >
         <SortingBar
