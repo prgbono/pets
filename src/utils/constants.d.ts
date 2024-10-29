@@ -1,0 +1,10 @@
+export declare const API_URL = "https://my-json-server.typicode.com/Feverup/fever_pets_data/pets";
+export declare const SORTING_OPTIONS: string[];
+export declare const DAYS_PER_MONTH = 30;
+export declare const UNHEALTHY_THRESHOLD_LOW = 2;
+export declare const UNHEALTHY_THRESHOLD_HIGH = 5;
+export declare const VERY_HEALTHY_THRESHOLD_LOW = 2;
+export declare const VERY_HEALTHY_THRESHOLD_HIGH = 3;
+export declare const SESSION_STORAGE_SORTED_BY = "sortedBy";
+export declare const SESSION_STORAGE_STORED_PETS = "storedPets";
+export declare const DEFAULT_ITEMS_PER_PAGE = 10;
