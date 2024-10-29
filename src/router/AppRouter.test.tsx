@@ -4,20 +4,31 @@ import AppRouter from './AppRouter'
 import Home from '@/components/pets/Home'
 import { MemoryRouter } from 'react-router-dom'
 import { PetContext } from '@/context/PetContext'
+import { useFetch as mockedUseFetch } from '@/hooks/useFetch'
+
+jest.mock('@/hooks/useFetch')
+
+const pets = [
+  {
+    id: 1,
+    name: 'mock name',
+    kind: 'dog',
+    weight: 7652,
+    height: 55,
+    length: 145,
+    photo_url: 'https://cdn2.thedogapi.com/images/BJT0Jx5Nm_1280.jpg',
+    description: 'Mocked description'
+  }
+]
 
 describe('Testing <AppRouter />', () => {
-  const pets = [
-    {
-      id: 1,
-      name: 'mock name',
-      kind: 'dog',
-      weight: 7652,
-      height: 55,
-      length: 145,
-      photo_url: 'https://cdn2.thedogapi.com/images/BJT0Jx5Nm_1280.jpg',
-      description: 'Mocked description'
-    }
-  ]
+  beforeEach(() => {
+    ;(mockedUseFetch as jest.Mock).mockReturnValue({
+      data: pets,
+      isLoading: false,
+      hasError: null
+    })
+  })
 
   test('it must display Home', () => {
     render(
